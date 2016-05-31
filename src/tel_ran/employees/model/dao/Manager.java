@@ -20,8 +20,8 @@ public class Manager extends Employee {
 	public String toString() {
 		return "Manager" + super.toString() + ", grade=" + grade;
 	}
-	
-	public int cmputeSalary(){
+	@Override
+	public int computeSalary(){
 		return super.computeSalary() * grade;
 	}
 	

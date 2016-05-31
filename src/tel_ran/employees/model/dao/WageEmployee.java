@@ -20,10 +20,12 @@ public class WageEmployee extends Employee {
 	public void setHours(int hours) {
 		this.hours = hours;
 	}
+	@Override
 	public String toString(){
 		return  "WageEmployee " + super.toString() + " wage = " + wage + ", hours = " + hours;
 	}
-	public int cmputeSalary(){
+	@Override
+	public int computeSalary(){
 		return super.computeSalary() + wage * hours;
 	}
 }

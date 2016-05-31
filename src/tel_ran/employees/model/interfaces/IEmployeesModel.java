@@ -1,9 +1,9 @@
-package tel_ran.eployees.model.interfaces;
+package tel_ran.employees.model.interfaces;
 
 import tel_ran.collections.Array;
 import tel_ran.employees.model.dao.Employee;
 
-public interface IEployeesModel {
+public interface IEmployeesModel {
 	public boolean hireEmployee(Employee empl);
 	public boolean fireEmployee(int id);
 	public Array getAllEmployees();

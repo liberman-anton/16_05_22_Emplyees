@@ -1,20 +1,22 @@
-package tel_ran.eployees.model.tests;
+package tel_ran.employees.model.tests;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.*;
+
 import tel_ran.collections.Array;
 import tel_ran.employees.model.dao.Employee;
-import tel_ran.eployees.model.implementation.EmployeesArray;
+import tel_ran.employees.model.implementation.EmployeesArray;
 
 public class TestEmployeesArray {
 
 	private static final int nElements = 10;
-	//EmployeesArray testEmplArr;
+	EmployeesArray testEmplArr;
 
 	@Before
 	public void setUp() throws Exception {
-		EmployeesArray testEmplArr = new EmployeesArray();
+		testEmplArr = new EmployeesArray();
 		for(int i = 0; i < nElements; i++){
 			Employee empl = new Employee(i, "name" + i, "position" + i % 5, 
 					100 * (i % 5) + i * 10);
@@ -24,19 +26,20 @@ public class TestEmployeesArray {
 
 	@Test
 	public void testGetEmployeesBySalary(){
-		EmployeesArray testArr = new EmployeesArray();
-		for(int i = 0; i < nElements; i++){
-			Employee empl = new Employee(i, "name" + i, "position" + i % 5, 
-					100 * (i % 5) + i * 10);
-			testArr.hireEmployee(empl);
-		}
-		Array arr = testArr.getEmployeesBySalary(300,500);
+		Array arr = testEmplArr.getEmployeesBySalary(200,500);
 		int size = arr.size();
 		for(int i = 0; i < size; i++){
 			Employee empl = (Employee)(arr.get(i));
 			System.out.println(empl);
 		}	
 		
+	}
+	
+	@Test
+	public void testHire(){
+		Employee empl = new Employee(123,"Anton","Boss",100000);
+		testEmplArr.hireEmployee(empl);
+		assertFalse(testEmplArr.hireEmployee(empl));
 	}
 
 }
